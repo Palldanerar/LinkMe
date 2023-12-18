@@ -102,19 +102,3 @@ a {
 .icon-img  img {
     height: 100%;
 }
-
-@media (min-width: 768px) {
-    .column {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    h1 {
-        font-size: 16px;
-    }
-
-    h3 {
-        font-size: 14px;
-    }
-}
