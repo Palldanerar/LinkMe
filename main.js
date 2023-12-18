@@ -1,12 +1,18 @@
-const linkButton = document.querySelectorAll(".icons");
+const shareButtons = document.querySelectorAll('.tile-share-button')
+console.log(shareButtons)
 
-linkButton.forEach(link => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
+async function copyText(e) {
+  e.preventDefault()
+  const link = this.getAttribute('link')
+  console.log(link)
+  try {
+    await navigator.clipboard.writeText(link)
+    alert("Copied the text: " + link)
+  } catch (err) {
+    console.error(err)
+  }
+}
 
-    const getLink = e.target.parentElement.getAttribute("href");
-    const copyLinkToClipBoard = navigator.clipboard.writeText(getLink);
-
-    alert("Link has been copied to clipboard");
-  })
-})
+shareButtons.forEach(shareButton =>
+  shareButton.addEventListener('click', copyText)
+)
